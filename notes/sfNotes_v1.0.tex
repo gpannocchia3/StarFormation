@@ -1,0 +1,83 @@
+\documentclass[a4paper,twoside,openright,titlepage,
+               headinclude,footinclude,BCOR5mm,
+               numbers=noenddot,cleardoublepage=empty,
+               tablecaptionabove]{scrbook}
+
+\include{sfNotes-config}
+
+\author{Giacomo Pannocchia} 
+\title{\textcolor{black}{NOTES OF}\\ \textcolor{RawSienna}{Star Formation Physics} \\ \vspace{7pt}\large \quad \quad \quad \quad \quad \textcolor{black}{version 1.0}}
+\date{a.y. 2026-2027}
+
+% Please fulfil the followed fields with your data
+
+\begin{document}
+
+  \begin{titlepage}
+    \maketitle
+  \end{titlepage}
+
+\cleardoublepage
+\newpage
+
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quotes - For removing quotes, please comment or delete the code inside \thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+    \null\vspace{\stretch {1}}
+        \begin{flushright}
+          \Large
+                \emph{For those who come after}
+        
+        \end{flushright}
+\vspace{\stretch{2}}\null
+
+\cleardoublepage
+\newpage
+
+\pagestyle{empty}
+%% change numbering into Roman numbers for the introductory part
+\setcounter{page}{1}
+\pagenumbering{Roman}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acknowledgement
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{chapters/acknowledge}
+
+\input{chapters/preface}
+%\selectlanguage{english}
+
+\cleardoublepage
+\newpage
+
+\tableofcontents
+\cleardoublepage
+\newpage
+
+\mainmatter
+\pagestyle{scrheadings}
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\include{chapters/chapter1}
+
+
+\part{Appendix}
+\include{chapters/appendix}
+
+\cleardoublepage
+\phantomsection
+\include{chapters/about}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+\small
+\bibliographystyle{plain}
+\bibliography{ref}
+
+\end{document}

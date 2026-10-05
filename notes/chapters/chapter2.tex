@@ -2,4 +2,183 @@
 %============================= HEADER =================================
 \chapter{Introduction to Astrochemistry}\label{ch:ii}
 
-Coming soon.
+Thanks to the advent and refining of radiotelescopes throughout the past century, it was possible to identify new molecules, both organic and inorganic, all around the ISM of the MW and, sporadically, in external galaxies (which is a considerable boon).
+\par As of September 2025, $\sim 330$ molecules were identified in the Milky Way and $\sim 74$ in external galaxies. You can find an extensive list, if you're interested, at this \href{www.astro.uni-koeln.de/cdms/molecules}{link}.
+\par Not surprisingly, we've been detecting molecules of the most abundant and (chemically) active elements, that are Oxygen, Carbon, and Nitrogen.
+
+\section{Surface Chemistry}
+
+The most elemental process is the radiative association of two atoms, A e B to form the molecule AB. The molecule will have an internal energy
+\begin{equation*}
+    \text{A}+\text{B}\to \text{AB}^{*}
+\end{equation*}
+The two associating atoms form a compound known as activated complex (AB$^{*}$) which will usually radiate away the excess energy produced by its formation. AB$^{*}$ must lose this excess energy during the impact to remain bound and not dissociate immediately. This energy loss through emission of photons is a \emph{very rare process}. However, the molecule can lose this excess energy via three-body collisions
+\begin{equation*}
+    \text{A}+\text{B}\to \text{AB}^{*} + \text{M} \to \text{AB} + \text{M}^{*}
+\end{equation*}
+which are still rather rare in the ISM, where density is at most $\sim 10^{7}-10^{10}\unit{cm}^{-3}$. De-excitation through three-body collisions is much more probable in denser environments like Earth's atmosphere.
+\par So how can we prevent the radiative dissociation of molecules in the ISM? Dust grains, thanks to their very large surface and heat capacity, can favor atom encounters and easily absorb the ecess energy.
+\par The process goes through three fundamental steps, which are also pictorially shown in Fig.\ref{fgr:surfacechemistry}:
+\begin{enumerate}
+    \item \emph{Accretion}: the particle impacts the grain surface and can be \emph{adsorbed}\footnote{i.e. can stick on surface. And no, it's not a typo.} if the temperature is lower than the evaporation temperature. Accretion can occur via two dominant mechanisms
+    \begin{itemize}
+        \item \emph{Physisorbption}: van der Waals forces ($0.01-0.2 \unit{eV}$);
+        \item \emph{Chemisorbption}: chemical bond ($1\unit{eV}$).
+    \end{itemize}
+    \item \emph{Surface diffusion}: if the particle is not chemisorbed, it can move on the grain surface, meet other species and, maybe, react to form new molecules.
+    \item \emph{Desorption}: if temperature increases above the evaporation temperature, the new molecule goes in the gas.
+\end{enumerate}
+\begin{figure}[h!]
+    \centering 
+    \includegraphics[width=0.7\linewidth]{img/surfacechemistry.png}
+    \caption{The three fundamental steps of surface chemistry on dust grains.}
+    \label{fgr:surfacechemistry}
+\end{figure}
+\par The “sites” where the probability to form new molecules is highest are the gravitational potential walls on the (non-smooth) dust grains. Transition from one site to the other can happen via two mechanisms: Thermal hopping\footnote{You can read, for example, \cite{hoang2019chemistryrotatinggrainsurfaces}.} (the adsorbed species migrate from one site to the other exploting the warming of the dust grain), and the good old quantum tunneling.
+\par Hydrogen (and Deuterium) is the most abundant and most “mobile” reactive species. Therefore, hydrogenation (and deuteration) is a very efficient surface chemistry process
+\begin{align*}
+    \text{H} &\to \text{H}_{2}\\
+    \text{O} &\to \text{OH} \to \text{H}_{2}\text{O}\\
+    \text{C}&\to \text{CH}\to\text{CH}_{2}\to\text{CH}_{3}\to\text{CH}_{4}\\
+    \text{N}&\to\text{NH}\to\text{NH}_{2}\to\text{NH}_{3}\\
+    \text{CO}&\to\text{HCO}\to\text{H}_{2}\text{CO}\to\text{H}_{3}\text{CO}\to\text{CH}_{3}\text{OH}
+\end{align*}
+If you're interested in the subject, you might want to take a look at \cite{1977ApJ...212..396A}, \cite{1985A&A...152..130D}, \cite{1977Ap&SS..52..443P}, \cite{1972ApJ...174..321W}, and many others for which I didn't manage to pinpoint the exact article.
+
+\section{Gas-Phase Chemistry}
+
+After H$_{2}$ was formed and evaporated from grains, the gas-phase chemistry starts. H$_{2}$ is so much more abundant than any other molecule that if a species can react with H$_{2}$, no other reactions need to be considered. How can we understand if a reaction with H$_{2}$ is spontaneous? A reaction at $p$ and $T$ constant is spontaneous if the Gibbs' free energy
+\begin{equation}
+    \Delta G = \Delta H -T\Delta S = \Delta U +RT\Delta N -T\Delta S < 0
+    \label{eq:gibbsspontaneous}
+\end{equation}
+\marginpar{Note that this condition holds intil the gas is isolated. Clearly, energy injection from external factors might provide the energy needed by endothermic reactions to start.}
+In particular, a reaction is spontaneous at low temperature if $\Delta U < 0$, hence only molecular binding energy is involved.
+\par Consider for example the reaction 
+\begin{equation*}
+    \text{C} + \text{H}_{2} \to \text{CH} + \text{H}
+\end{equation*}
+\par Molecular Hydrogen has a binding energy of $4.48\unit{eV}$, while CH has $3.47\unit{eV}$. Hence, the reaction is endothermic $\Delta U = U_{r} - U_{p} > 0$ and cannot occur spontaneously in molecular clouds, where typically $kT < 0.01\unit{eV}$.
+\par In the molecular ISM, only exothermic reactions can occur!
+
+\subsection{Neutral-Neutral Reactions}
+
+Consider a reaction like 
+\begin{equation*}
+    \text{A}+\text{BC} \to \text{AB}+\text{C}
+\end{equation*}
+Reactions of this sort present an \emph{activation energy}, which is the minimum energy to break the existing bond. Usually, this energy is of the order of $E_{a}\sim 0.11-1\unit{eV}$ while the temperature of the ISM is $T \lesssim 0.01\unit{eV}$. This means that only exothermic and barrierless reactions can occur in the molecular ISM.
+
+\subsection{Neutral-Charged Reactions}
+
+Also called Ion-Neutral, they involve interactions of the sort of 
+\begin{equation*}
+    \text{A}^{+}+\text{BC} \to \text{AB}^{+} +\text{C}
+\end{equation*}
+Ion-neutral exothermic reactions typically do not have activation barrier, thanks to the long range attractive force between the ion and the induced dipole moment (see Chapter \ref{ch:i}, or \cite{1986ApJS...62..553A} and \cite{1973ApJ...185..505H}). This is because the collision rate coefficient has no dependence from the temperature of the region for this particular type of interaction.
+
+\section{Formation of H$_{3}^{+}$}
+
+After the formation of molecular Hydrogen. cosmic rays can ionize the molecule 
+\begin{equation*}
+    \text{H}_{2} + \text{c.r.} \to \text{H}_{2}^{+} + e^{-}+\text{c.r.}
+\end{equation*}
+Once $\text{H}_{2}^{+}$ is formed in small amounts, it reacts very quickly with the very abundant H$_{2}$ to form H$_{3}^{+}$ the most abundant and important molecular ion in the ISM
+\begin{equation*}
+    \text{H}_{2} + \text{H}_{2}^{+} \to \text{H}_{3}^{+} +\text{H}
+\end{equation*}
+This new ion triggers ion-neutral reactions that lead to the formation of more complex molecules. It can an easily donate a proton to some neutrals via exothermic reactions, e.g. with atomic O, and
+produce another ion. If this ion can react with H$_{2}$, it gives
+rise to another ion, and so on. The chain of reactions with H2 stops when the final ion cannot react with H$_{2}$ anymore for energetic reasons.
+\par For example
+\begin{align*}
+    \text{H}_{3}^{+} + \text{O} &\to \text{OH}^{+} + \text{H}_{2}\\
+    \text{OH}^{+} + \text{H}_{2} &\to \text{H}_{2}\text{O}^{+} + \text{H}\\
+    \text{H}_{2}\text{O}^{+} + \text{H}_{2} &\to \text{H}_{3}\text{O}^{+} + \text{H}\\
+    \text{H}_{3}\text{O}^{+} + e^{-} &\to \text{H}_{2}\text{O} + \text{H}\\
+    &\to \text{OH} +\text{H}_{2} \implies \text{OH} + \text{O} \to \text{O}_{2} + \text{H} \\
+    &\to \text{O}
+\end{align*}
+\par It can also prompt the formation of simple hydrocarbons: The formation of carbon-bearing species starts with a sequence of reactions very similar to those that initiate the chemistry of oxygen-bearing species. It procedes through a series of \emph{proton transfers} from H$_{3}^{+}$ to a neutral atom, forming a hydrogenated ion, then to \emph{Hydrogen abstraction reactions}, which is a chain of reactions in which one H of H$_{2}$ is transferred to an ion. It stops to an ion that cannot react with H$_{2}$ anymore, and finally ends with \emph{dissociative recombination}, the ion that cannot react with H$_{2}$ dissociates upon recombination with an electron.
+\par Then again, H$_{3}^{+}$ also prompts the initiation of Nitrogen chemistry which, however, starts from 
+\begin{equation*}
+    \text{CH} + \text{N} \to \text{CN} + \text{H}
+\end{equation*}
+
+\section{Formation and Destruction of CO}
+
+Carbon Monoxyde is formed thanks to a series of chemical reactions
+\begin{align*}
+    \text{C} + \text{H}_{3}\text{O}^{+} &\to \text{HCO}^{+} + \text{H}_{2}\\
+    O + \text{CH}_{3} &\to \text{HCO}^{+} + \text{H}_{2}\\
+    \text{HCO}^{+} + e^{-} &\to \text{CO} + \text{H}
+\end{align*}
+Carbon Monoxyde is very stable ($B \sim 11.09\unit{eV}$) and difficult to destroy. Curiously enough, it is destroyed by the very ion that prompts the start of all the fancy chemistry we've described in the last section
+\begin{equation*}
+    \text{H}_{3}^{+} + \text{CO} \to \text{HCO}^{+} + \text{H}_{2}
+\end{equation*}
+but the last reaction of the previous cycle immediately reforms CO. 
+\par More efficient ways to "remove" Carbon Monoxyde are 
+\begin{align*}
+    \text{He}^{+} + \text{CO} &\to \element{He}{}{} + \text{C}^{+} + \element{O}{}{}\\
+    h\nu + \text{CO} \to \element{C}{}{} + \element{O}{}{}
+\end{align*}
+but part of C$^{+}$ reacts with OH and water (but not with molecular Hydrogen, since the reaction is endothermic)
+\begin{align*}
+    \text{C}^{+} + \text{OH} &\to \text{CO}^{+} + \text{H}\\
+    \text{CO}^{+} + \text{H}_{2} &\to \text{HCO}^{+} + \text{H}\\
+    \text{C}^{+} + \text{H}_{2}\text{O} &\to \text{HCO}_{3}^{+} + \text{H}
+\end{align*}
+while most photons able to dissociate CO (so with $h\nu > 11.09\unit{eV}$) are absorbed in advance from H$_{2}$.
+
+\section{Freeze-Out In Collapsing Clouds}
+
+Let us consider a collapsing cloud: as long as the depletion timescale is longer than the free-fall timescale, the \emph{freeze-out}\footnote{Please, do not mistake this freeze-out with other kinds of freeze-outs, like neutrons freeze-out and the sorts. Here the freezing is quite literal, while in the other case is more of a figure of speech to hint at the fact that their abundance is no longer changing.} does not occur during collapse. But if $\tau_{\text{dep}}$ is shorter than $\tau_{ff}$, the molecule freezes during collapse, disappearing from the gas! In the solid phase, it cannot be “seen” in emission anymore. In short, we have to compare
+\begin{equation}
+    \tau_{ff} = \left(\frac{3\pi}{32G\rho}\right)^{-1/2} = 4\power{10}{-7}n_{\text{H}}^{-1/2}\unit{yr}
+    \label{eq:freefalltime}
+\end{equation}
+with 
+\begin{equation}
+    \tau_{\text{dep}} = \frac{1}{\alpha n_{d}\sigma_{d}v_{t}} \approx 10^{9} \sqrt{\frac{m_{X}}{T}}(n_{\text{H}}\alpha)^{-1}\unit{yr}
+    \label{eq:depletiontime}
+\end{equation}
+\begin{figure}[h!]
+    \centering 
+    \includegraphics[width=0.7\linewidth]{img/moleculefreeze.png}
+    \caption{How a collapsing core looks like in the emission of gas and dust.}
+\end{figure}
+
+\section{Isotopic Fractionation}
+
+We define \emph{isotopic fractionation} the the chemical process(es) by which the fraction of heavier isotopes in molecules varies through chemical reactions.
+\par For example 
+\begin{equation*}
+    \element{C}{12}{}\text{O} + ^{13}\text{C}^{+} \leftrightharpoons ^{12}\text{C}^{+} + \element{C}{13}{}\text{O} + 35\unit{K}
+\end{equation*}
+The difference in molecular binding energy between reactants
+and products, caused by different zero-point vibration energy,
+makes one direction exothermic, i.e. favoured, in cold gas: The molecule with heavier isotope has lower \emph{zero-point energy}.
+\par The zero-point energy of a biatomic molecule is usually expressed through the equation
+\begin{equation}
+    E_{\nu} \approx \frac{1}{2}g\left(\frac{1}{2\pi}\sqrt{\frac{k}{m_{r}}}\right)
+    \label{eq:zeropointenergy}
+\end{equation}
+If temperature is lower than $T \leq 20\unit{K}$, then 
+\begin{equation*}
+    \text{H}_{3}^{+} + \text{HD} \leftrightharpoons \text{H}_{2}\text{D}^{+} + \text{H}_{2} + 230\unit{K}
+\end{equation*}
+and the ratio H$_{2}$D/H$_{3}^{+}$ increases of orders of magnitude since 
+\begin{equation*}
+    \frac{n(\text{H}_{3}^{+})}{n(\text{H}_{2}\text{D}^{+})}\frac{n(\text{HD})}{n(\text{H}_{2})} = \frac{\langle \sigma v \rangle_{\leftarrow}}{\langle \sigma v \rangle_{\rightarrow}}
+\end{equation*}
+which implies that  
+\begin{equation*}
+    \frac{n(\text{H}_{3}^{+})}{n(\text{H}_{2}\text{D}^{+})} = \frac{n(\text{H}_{2})}{n(\text{HD})}\exp\left(-\frac{\Delta E}{kT}\right)
+\end{equation*}
+\par On the other hand, if CO depletes ($n \gtrsim 10^{5}\unit{cm}^{-3}$), H$_{3}^{+}$ and $\text{H}_{2}\text{D}^{+}$ remain abundant
+\begin{align*}
+    \text{H}_{3}^{+} + \text{X} &\leftrightharpoons \text{XH}^{+} + \text{H}_{2}\\
+    \text{H}_{2}\text{D}^{+} + \text{X} &\leftrightharpoons \text{XD}^{+} + \text{H}_{2}
+\end{align*}
+Both the conditions we presented are typical in dense and cold cores: The ratio XD$^{+}$/XH$^{+}$ is orders of magnitude larger than the [D/H] ISM value ($10^{-5}$).

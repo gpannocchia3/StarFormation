@@ -791,3 +791,188 @@ which verifies
 \begin{equation}
     T_{B} = (T_{\text{ex}}-T_{\text{BG}})(1-\exp(-\tau_{\nu})) \approx (T-T_{\text{BG}})(1-\exp(-\tau_{\nu})) 
 \end{equation}
+
+\section{Observations of Molecular Clouds and SF Regions}
+
+Chances are that for our observations we're going to use a telescope of some kind, be it a single-dish one or an interferometric one. Neither of the two, however, are able to gauge directly the brightness temperature of the observed source, but rather measure the convolution between the response of the instrument itself and the temperature, proper, of the source.
+\par It is common then to introduce the quantity $P_{n}(\theta,\phi)$ known as \emph{normalized antenna diagram}, which is the equivalent of the PSF in the optical bands. In polar coordinates, it represents the power received as a function of the angular distance $\theta-\theta_{0}$, $\phi-\phi_{0}$ from the pointing direction.
+\par Since telescopes operate through diffraction processes, it is expected of them to produce multiple "lobes," which essentially tell us where the telescope is most sensitive. The larger lobe is usually called \emph{main lobe} or \emph{main beam}, and the solid angle it subtends is called $\Omega_{MB}$, the main beam solid angle.
+\par Let's assume now that an astrophysical source is emitting brightness $I_{\nu} = B_{\nu}(T_{B})$, parametrized with the brightness temperature. In the RJ-regime, we can write
+\begin{equation*}
+    B_{\nu}(T) \approx \frac{2k\nu^{2}}{c^{2}}T \implies I_{\nu} = \frac{2k\nu^{2}}{c^{2}}T_{B}
+\end{equation*}
+and the telescope's output is the convolution between $T_{B}$ and $P_{n}$, defined as \emph{main beam brightness temperature} $T_{MB}$ \marginpar{Note that if $T_{B}$ is a $\delta$-function and $P_{n}$ is Gaussian, then $T_{MB}$ is Gaussianly distributed as well.}
+\begin{equation}
+    T_{MB}(\theta_{0}, \phi_{0}) = \frac{\iint T_{B}(\theta, \phi)P_{n}(\theta-\theta_{0}, \phi-\phi_{0})\diff{\Omega}}{\iint P_{n}(\theta,\phi)\diff{\Omega}}
+    \label{eq:mbtb}
+\end{equation}
+One basilar diffraction result is that the angular resolution of a single-dish telescope in the radio/millimetric bands is diffraction-limited, hence the half-power bandwidth is 
+\begin{equation}
+    \text{HPBW} = \frac{1.2\lambda}{D}
+\end{equation}
+which is also the reason why single-dish radio telescopes have (generally) an inferior resolution compared with an equivalent size telescope in the optical bands.
+\par Assuming a Gaussian, point-like source $\Omega_{S} \ll \Omega_{MB}$ \marginpar{Note that for an "extended source" $T_{MB}\approx T_{B}$, while for a point-like source $T_{MB}\ll T_{B}$.}
+\begin{equation}
+    T_{MB} = \frac{T_{B}\Omega_{S}}{\Omega_{MB}+\Omega_{S}} \approx \frac{T_{B}\Omega_{S}}{\Omega_{MB}}
+\end{equation}
+If we now substitute the expression we've derived for the brightness temperature (\ref{eq:brightnesstemperature-spectralradioline}), we obtain 
+\begin{equation}
+    T_{MB} = \frac{\Omega_{S}}{\Omega_{MB}+\Omega_{S}}(T_{\text{ex}}-T_{\text{BG}})(1-\exp(-\tau_{\nu}))
+\end{equation}
+which holds under the aforementioned assumptions. Starting from three simple observables ($T_{MB}$, $\nu$, and $\Omega_{S}$), quite a plethora of derived quantities can be inferred:
+\begin{itemize}
+    \item The excitation temperature $T_{\text{ex}}$,
+    \item The optical depth $\tau$;
+    \item The velocity field $v$;
+    \item The kinetic temperature $T$;
+    \item The total column density of a given species $N_{X}$;
+    \item The mass of molecular Hydrogen $M_{\text{H}_{2}}$;
+    \item The numeric density of molecular Hydrogen $n_{\text{H}_{2}}$.
+\end{itemize}
+
+\subsubsection{Velocity Field}
+
+The velocity field is perhaps one of the (conceptually) easier ones to measure. All you have to do is simply infer the velocity of the source from observations of the line profile exploiting the Doppler effect 
+\begin{equation}
+    v = \frac{c}{\nu_{0}}(\nu_{0}-\nu)
+\end{equation}
+Note that in most cases the purely thermal broadening is negligible compared to the total broadening that is observed, which means that the primary sources of broadening are rather turbulence and ordered motions; also, in principle any molecule can be used.
+\par Different ordered motions are dominant during different phases of the evolution of a star-forming region \cite{1987ARA&A..25...23S}. For example, during the \emph{fragmentation} and \emph{pre-stellar} phases gas contraction and gas infall are the dominant motions, while in the \emph{proto-stellar} phase the dominating contributions are rather those coming from the accretion disk, from outflows, jets, and infalls of gas. Lastly, in the \emph{pre-main sequence} phase, there's only a residual contribution from jets, with most of the contribution coming from disks.
+\par Assume for example that you're trying to observe the emission line of a certain molecule in a rotating disk, as pictorially shown in Fig.\ref{fgr:rotatingdisk}.
+\begin{figure}[h!]
+    \centering 
+    \includegraphics[width=0.35\linewidth]{img/rotatingdisk.png}
+    \caption{Doppler shift on an emission line of some molecule caused by emission in a rotating disk or ring. The observer is supposed to be located somewhere near the bottom of the figure.}
+    \label{fgr:rotatingdisk}
+\end{figure}
+\par A well-established method to resolve small velocity structures is that of the \emph{channel maps}, which is able to give you a feeling of which part of the cloud is moving towards or away from you. One notable application of this method was given by Guilloteau \cite{1999A&A...348..570G} to study emission lines in the young quadruple system GG Tau.
+
+\subsubsection{Bipolar Outflows and Infalls}
+
+Another rather common occurrence is for a star-forming core to present two outflowing jets, whence the name \emph{bipolar outflow}. Clearly, since they're going to be ejected in diametrally-opposite directions, one of the jets will be blueshifted, while the other will be redshifted, thus modifying the emission profile by adding high-velocity line wings, as shown in Fig.\ref{fgr:linewings}.
+\begin{figure}[h!]
+    \centering 
+    \includegraphics[width=0.8\linewidth]{img/linewing.png}
+    \caption{Formation of high-velocity line wings induced by the presence of bipolar outflows in a star-forming region.}
+    \label{fgr:linewings}
+\end{figure}
+\par Note that if the outflow is not spatially resolved, it can be revealed by an excess emission in the high-velocity line wings. Also note that high-velocity wings tend to grow more and more clear for lines with large $E_{u}$.
+\par If, on the other hand, there's an instance of infalling envelope, we might expect to see something like what's shown in Fig.\ref{fgr:infall}.
+\begin{figure}[h!]
+    \centering 
+    \includegraphics[width=0.6\linewidth]{img/infallexample.png}
+    \caption{Examples of Inverse P-Cygni profiles for different molecules emission lines.}
+\end{figure}
+\par The net result is that different regions of the envelope will be blueshifted, redshifted, or not shifted at all, creating a rather peculiar spectrum.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/infall.png}
+    \caption{Line profile as modified by an infalling envelope. In particular, the one in the picture is an envelope of molecular Hydrogen being accreted onto a H$_{\text{II}}$ region.}
+    \label{fgr:infall}
+\end{figure}
+
+\section{Optical Depth Measurements}
+
+It's easy to show that from the same transition observed in two different isotopologues, having known their relative abundance  and under the assumption of $T_{\text{BG}} \ll T_{\text{ex}}$
+\begin{align*}
+    T_{MB}^{a} &= \frac{\Omega_{S}}{\Omega_{S}+\Omega_{MB}}T_{\text{ex}}^{a}(1-\exp(-\tau_{a}))\\
+    T_{MB}^{b} &= \frac{\Omega_{S}}{\Omega_{S}+\Omega_{MB}}T_{\text{ex}}^{b}(1-\exp(-\tau_{b}))
+\end{align*}
+which tells us that
+\begin{equation}
+    \frac{T_{MB}^{a}}{T_{MB}^{b}} \approx \frac{1-\exp(-\tau_{a})}{1-\exp(-\tau_{b})}
+\end{equation}
+Moreover, since
+\begin{equation}
+    \frac{\tau_{b}}{\tau_{a}} = \frac{N_{b}}{N_{a}} = X_{b} \implies \frac{T_{MB}^{a}}{T_{MB}^{b}} \approx \frac{1-\exp(-\tau_{a})}{1-\exp(-\tau_{a}X_{b})} 
+\end{equation}
+From a line with hyperfine structure, comparing relative intensity of two spectrally resolved components allows to compute of the main one. Same as above, but $X_{b}$ is replaced by $g$, the ratio of the two levels, $g_{2}/g_{1}$.
+\par Note that if the system is in LTE (and so $T_{\text{ex}} = T$), we can infer two important quantities from just two of our observables ($\Omega_{S}$ and $T_{MB}$), which are 
+\begin{equation}
+    (\tau \gg 1) \quad T \approx \frac{\Omega_{MB}+\Omega_{S}}{\Omega_{S}}T_{MB}
+\end{equation}
+and 
+\begin{equation}
+    (\tau \ll 1) \quad N_{u} \propto \frac{\Omega_{MB}+\Omega_{S}}{\Omega_{S}}T_{MB}
+\end{equation}
+which allows us to create Boltzmann diagrams to infer also the total numeric density (assuming the specifics of the analysed transition are known).
+\par If, instead, we're in a nLTE system, we can still calculate the numeric density of a given excited state from a single line with $\tau \ll 1$ (and under the assumption of the same excitation temperature for all rotational levels)
+\begin{equation}
+    N_{u} = \frac{8\pi k \nu^{3}}{hc^{3} A_{ul}}\frac{\Omega_{MB}+\Omega_{S}}{\Omega_{S}}\int_{-\infty}^{\infty} T_{MB}\diff{\nu}
+\end{equation}
+and infer the total numeric density 
+\begin{equation}
+    N_{\text{tot}} = \frac{N_{u}\mathcal{Z}(T_{\text{ex}})}{g_{u}}\exp(E_{u}/kT_{\text{ex}})
+\end{equation}
+With more than one line we could instead use Boltzmann diagrams.
+\par If the system is optically thick ($\tau \gg 1$) to the transition, from the analysis of one line only we get 
+\begin{equation}
+    N_{u} = \frac{8\pi k \nu^{3}}{hc^{3} A_{ul}}\frac{\Omega_{MB}+\Omega_{S}}{\Omega_{S}}\int_{-\infty}^{\infty} T_{MB}\frac{\tau_{\nu}}{1-\exp(-\tau_{\nu})}\diff{\nu}
+\end{equation}
+while with at least two lines we can still create Boltzmann diagrams.
+\par It is not particularly difficult to show that the numeric density $N_{u}$ and the numeric density under the assumption of optical thinness are related by a simple expression 
+\begin{equation}
+    N_{u}^{\text{thin}} = \frac{1-\exp(-\tau^{0})}{\tau^{0}}N_{u}
+\end{equation}
+with $\tau^{0}$ defined through the introduction of the equivalent width $\Delta\nu$ 
+\begin{equation}
+    \int \tau_{\nu}\diff{\nu} = \tau^{0}\Delta\nu
+\end{equation}
+
+\section{Measurements of Densities and Masses}
+
+In the following, we'll try to give a short account of how measurements of masses and densities of species of astronomical interest are possible thanks to what we've discussed so far.
+
+\subsection{Density of Molecular Hydrogen}
+
+From the total numeric density $N_{\text{tot}}$ we can calculate the numeric density of molecular Hydrogen
+\begin{equation}
+    n_{\text{H}_{2}} = \frac{N_{\text{tot}}}{D[X]}
+\end{equation}
+where $D$ is the source's diameter, and $X$ is the molecular abundance with respect to molecular Hydrogen.
+
+\subsection{Dust and Gas Mass}
+
+\begin{figure}[h!]
+    \centering 
+    \includegraphics[width=0.6\linewidth]{img/dustemission.png}
+    \caption{Schematic representation of emission and absorption as carried out by dust grains in the ISM.}
+    \label{fgr:dustemission}
+\end{figure}
+\par The flux density of a source with thermal emission from dust, at temperature $T_{d}$ and solid angle $\Omega_{S}$, is 
+\begin{equation}
+    F_{\nu} = \int_{\Omega_{S}}I_{\nu}\diff{\Omega} = B_{\nu}(T_{d})(1-\exp(-\tau_{\nu}))\Omega_{S}
+\end{equation}
+where the factor multiplying $\Omega_{S}$ is called \emph{grey body}\footnote{It is essentially a blackbody contribution multiplying an efficiency term.}. For dust thermal emission, we use the dust absorption coefficient per unit mass density (which includes both gas and dust) and unity length, the opacity $\kappa_{\nu}$, which is related to the optical depth through
+\begin{equation}
+    \tau_{\nu} = \kappa_{\nu}\int \rho\diff{s}
+\end{equation}
+\par Dust opacity is empirically approximated by a power law of frequency with exponent $\beta$ (typically 1-2)
+\begin{equation}
+    \left[\frac{\kappa_{\nu}}{\unit{cm}^{2}\unit{g}^{-1}}\right] = 0.1\left[\frac{\nu}{1000\unit{GHz}}\right]^{\beta}
+    \label{eq:dustopacity}
+\end{equation}
+We can assume optically thin emission at millimetric and sub-millimetric wavelengths, so that the RJ approximation holds and we can write the radiative flux as 
+\begin{equation}
+    F_{\nu} = \frac{2k\nu^{2}}{c^{2}}T_{d}\tau_{\nu}\Omega_{S} \propto \nu^{2+\beta}
+\end{equation}
+where $2+\beta$ is sometimes called \emph{spectral index}. Measuring the flux at different wavelengths or frequencies we're able to obtain a curve known as \emph{spectral energy distribution} (SED).
+\par If you were to look at the SED for dust emission, you'd find out that a grey body fits rather well most of the observed profile, but with a significant deviation from expectations in the short-wavelengths range (mid/near-IR). Such "flux excess" is caused by the presence of Polyciclic Aromatic Hydrocarbons (PAHs) in the ISM.
+\par The mass of the dust in the ISM can be calculated applying Mie's theory of absorption/scattering under "reasonable assumptions" (as an old professor of mine used to say). In fact, the monochromatic luminosity of a single (spherical) dust grain can be written as 
+\begin{equation}
+    L_{\nu} = 4\pi a^{2}\pi B_{\nu}(T_{d})Q_{\nu}
+\end{equation}
+where $Q_{\nu}$ is an emission efficiency factor, that accounts for deviations of the dust grain from black body behavior.
+\par If the total mass of dust in the cloud is $M_{d}$, while the mass of the single grain is $m_{d}$, the number of grains in the cloud is simply 
+\begin{equation}
+    N_{d} = \frac{M_{d}}{m_{d}} = \frac{3M_{d}}{4\pi a^{3}\rho_{d}}
+\end{equation}
+Now, if the emission is \emph{optically thin}, the flux measured at a distance $D$ is 
+\begin{equation}
+    F_{\nu} = \frac{N_{d}L_{\nu}}{4\pi D^{2}}
+\end{equation}
+Hence, substituting all the needed quantities, we're able to find an expression for the total mass of dust in a cloud
+\begin{equation}
+    M_{d} = \frac{4a\rho_{d}F_{\nu}D^{2}}{3B_{\nu}(T_{d})Q_{\nu}}
+    \label{eq:dustmass}
+\end{equation}

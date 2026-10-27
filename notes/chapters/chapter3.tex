@@ -572,7 +572,7 @@ So far, the assumption of LTE has trailed along our whole discussion like a ghos
     \frac{n_{u}}{n_{l}} = \frac{g_{u}}{g_{k}}\exp\left(-\frac{h\nu_{ul}}{kT_{\text{ex}}}\right)
     \label{eq:excitationtemperature}
 \end{equation}
-where we're implicitly assuming the ratio $n_{u}/n_{l}$ to be constant over time. Note that if the system is in LTE, then $T_{\text{ex}} = T$ and is the same $\forall (u,l)$, while in nLTE $T_{\text{ex}}$ is different for each transition considered.
+where we're implicitly assuming the ratio $n_{u}/n_{l}$ to be constant over time. Note that if the system is in LTE, then $T_{\text{ex}} = T$ and is the same $\forall (u,l)$, while in nLTE $T_{\text{ex}}$ is different for each transition considered. Thus, $T_{\text{ex}}$ is not a measure of the mean particle energy, but rather a way to parameterise the excitation states of a two-level system.
 \par In statistical equilibrium, the source function $S_{nu}$ can then be written as 
 \begin{equation}
     S_{\nu} = \frac{j_{\nu}(T_{\text{ex}})}{\alpha_{\nu}(T_{\text{ex}})} = B_{\nu}(T_{\text{ex}})
@@ -641,6 +641,42 @@ which describes an \emph{amplification} and not an attenuation.
     \caption{Analysis of $7\unit{mm}$ free-free radiation lines and H$_{2}$O maser lines in a H$_{\text{II}}$ region. The panel on the right shows that the hypercompact H$_{\text{II}}$ region seems to be (generally) expanding. For more you can check \cite{2007A&A...472..867M}.}
 \end{figure}
 \par Maser lines are mainly divided into two classes: \emph{Collisionally excited lines}, and \emph{radiatively excited lines}.
+
+\subsection{Ionization Equilibrium}
+
+Ionisation is one of the most important processes in the ISM. The ionisation threshold of most elements is $\sim 10 \unit{eV}$. $\langle E_{\text{kin}} \rangle > 10\unit{eV}$ corresponds to $T > 10^{5}\unit{K}$. Then, we expect to have eﬃcient collisional ionisation in very hot regions. In cooler regions most of the ionisation if
+produced by UV photons (and cosmic rays as soon as the visual extinction is of the order of $3-4 \unit{mag}$). The relevant process are mainly two 
+\begin{align*}
+    & \text{Photoionization process:} \quad X^{i}+\gamma \to X^{i+1}+e^{-}\\
+    & \text{Radiative recombination:} \quad X^{i+1}+e^{-} \to X^{i}+\gamma
+\end{align*}
+For the element $X$ to be in ionisation equilibrium, we need to balance the two above processes
+\begin{equation*}
+    n_{\gamma}n(X^{i})\sigma_{\text{ph}} c = n(X^{i+1})n_{e}\sigma_{rr}v
+\end{equation*}
+which we can promptly convert into averaged quantities 
+\begin{equation*}
+    n_{\gamma}n(X^{i})\langle \sigma_{\text{ph}}\rangle c = n(X^{i+1})n_{e}\langle \sigma_{rr}v\rangle
+\end{equation*}
+and assume a Maxwellian distribution of velocities at temperature $T$
+\begin{equation*}
+    f(E)\diff{E} = \frac{2}{\sqrt{\pi}}\sqrt{\frac{E}{kT}}e^{E/kT}\frac{\diff{E}}{kT}
+\end{equation*}
+which means 
+\begin{equation*}
+    \langle \sigma_{rr}v\rangle = \int_{0}^{\infty} \sqrt{\frac{2}{m_{e}}}\sigma_{rr}\sqrt{E}\frac{2}{\sqrt{\pi}}\sqrt{\frac{E}{kT}}e^{E/kT}\frac{\diff{E}}{kT}
+\end{equation*}
+We can assume a parametrization $\sigma_{rr} = \sigma_{rr,0}(I_{\text{H}}/E)$, so that 
+\begin{equation}
+    \langle \sigma_{rr}v\rangle = \left(\frac{8}{\pi m_{e}kT}\right)^{1/2}\sigma_{rr,0}I_{\text{H}}\propto T^{-1/2}
+    \label{eq:rrrate}
+\end{equation}
+Usually, $\langle \sigma_{rr}v\rangle = \alpha(T)$ is referred to as \emph{radiative recombination rate}.
+
+\subsection{Pressure Equilibrium}
+
+For two contiguous phases $n_{1}kT_{1} = n_{2}kT_{2}$. Earlier views of the ISM assumed denser and cooler clouds ($n\uparrow\,,\,T\downarrow$) in a warmer diluted medium ($n\downarrow\,,\,T\uparrow$), but free electrons are ubiquitous (since the ISM is coupled with magnetic fields, which are a further source of pressure), and turbulent energy density is non-negligible with respect to thermal energy density.
+\par What we're going to do is assume a tendency towards the pressure equilibrium.
 
 \section{Excitation Temperature and Column Density}
 

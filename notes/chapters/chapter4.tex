@@ -1,0 +1,125 @@
+\chapter{Coming soon}
+
+\section{Heating and Cooling Processes in the ISM}
+
+In the following, we're going to adapt this notation
+\begin{itemize}
+    \item $G$: heating rate (gain), measured in $\unit{erg}\unit{s}^{-1}$;
+    \item $L$: cooling rate (loss), measured in $\unit{erg}\unit{s}^{-1}$;
+    \item $\Gamma$: volumetric heating rate, measured in $\unit{erg}\unit{s}^{-1}\unit{cm}^{-3}$;
+    \item $\Lambda$: volumetric cooling rate, measured in $\unit{erg}\unit{s}^{-1}\unit{cm}^{-3}$;
+    \item $\mathcal{L}$: cooling function, measured in $\unit{erg}\unit{s}^{-1}\unit{cm}^{3}$;
+\end{itemize}
+Note that $\Lambda = nL = n^{2}\mathcal{L}$ where $n$ is the total number density of gas particles. We need to study heating and cooling mechanisms to find the equilibrium temperature
+
+\subsection{Heating Mechanisms: Electrons}
+
+We have three main sources of electrons. The first is secondary electrons ejected from atoms interacting with cosmic rays \cite{2012ApJ...756..157G}
+\begin{equation*}
+    p_{\text{CR}} + \text{H} \to p_{\text{CR}}' + p^{+}+e^{-}
+\end{equation*}
+Electrons produced as such have a mean energy $\langle E_{e}\rangle \sim 30\unit{eV}$, but in reality present a broad energy distribution which causes excitation and chemical reactions. On average, about $\sim 10\unit{eV}$ goes into heating the surrounding atoms and ions. Thus, the heating gain from the interaction with cosmic rays is 
+\begin{equation}
+    G_{\text{CR}} \sim 10^{-27}\left(\frac{\zeta_{\text{CR}}}{10^{-16}\unit{s}^{-1}}\right)\unit{erg}\unit{s}^{-1}
+    \label{eq:CR-heatinggain}
+\end{equation}
+where the CR ionization rate is 
+\begin{equation}
+    \zeta_{\text{CR}} = 4\pi \int_{I_{\text{H}}}^{\infty} (1+\Phi)j_{\text{CR}}(E)\sigma_{\text{ion}}(E)\diff{E}
+    \label{eq:CR-ionizationrate}
+\end{equation}
+where $j_{\text{CR}}$ is the specific intensity of cosmic rays and $\Phi$ is the correcting factor for secondary ionizations. From (\ref{eq:CR-heatinggain}), the volumetric gain is simply $\Gamma_{\text{CR}} = \zeta_{\text{CR}}Qn$, where $Q$ is the energy deposited by each secondary electron.
+\par A second source of heating comes from electrons ejected from dust grains by photons (see \cite{2011piim.book.....D}, §25.1). We can define a work function $w$ which is analogous to the ionization threshold of an atom $w \sim 5\unit{eV}$. If $h\nu > w$, the impinging photon will kick out electrons from dust grains through photoelectric effect. For the ISRF of our Galaxy, the PE heating gain is 
+\begin{equation}
+    G_{\text{pe}} \sim 2\power{10}{-26}\unit{erg}\unit{s}^{-1}\propto \zeta_{\text{pe}}
+    \label{eq:PE-heatinggain}
+\end{equation}
+where $\zeta_{\text{pe}}$ is the rate at which a photoelectron is emitted 
+\begin{equation}
+    \zeta_{\text{pe}} = 4\pi \int_{\mathcal{U}}^{\infty} j_{\nu}(E)\pi a^{2}Q_{\text{abs}}Y_{\text{pe}}\diff{E}
+    \label{eq:GR-photoelectronrate}
+\end{equation}
+where $j_{\nu}$ is the specific intensity of radiation, $a$ the (spherical) grain radius, $Q_{\text{abs}}$ the absorption coefficient, $Y_{\text{pe}}$ the yield efficiency, and $\mathcal{U}$ the electric potential of the grain.
+\par The third source of heating involving electrons is an old friend of ours, which is photoionization on atoms (\cite{2011piim.book.....D}, §27.1). The photoionization rate is 
+\begin{equation}
+    \zeta_{\text{pi}} = 4\pi \int_{I_{\text{X}}}^{\infty} j_{\nu}(E)\sigma_{\text{pi}}(E)\diff{E}
+    \label{eq:AT-photoionizationrate}
+\end{equation}
+For Hydrogenoid atoms 
+\begin{equation}
+    \sigma_{\text{pi}} \approx \pi a_{0}^{2}\left(\frac{E_{\gamma}}{Z^{2}I_{\text{H}}}\right)^{-3} \quad E_{\gamma} \geq Z^{2}I_{\text{H}}
+\end{equation}
+\par The volumetric heating rate for photoionization is 
+\begin{equation}
+    \Gamma_{\text{pi}} = 4\pi n(X)\int_{I_{X}}^{\infty}j_{\nu}(E)\sigma_{\text{pi}}(E)(E-I_{X})\diff{E} = \zeta_{\text{pi}}n(X)\langle E_{e} \rangle
+\end{equation}
+
+\subsection{Heating Mechanisms: Shocks}
+
+Shocks can be created during SN explosions or MC collisions (on larger scales by galaxy clusters' collision). The conversion of kinetic energy of the bulk flow into thermal energy is associated with the random particle motion. In SN events, the temperature can increase up to $10^{7}\unit{K}$. 
+\par Shock heating is the dominant mechanism in the HIM.
+
+\subsection{Cooling Mechanisms: Radiative Cooling}
+
+You can check \cite{2011piim.book.....D} §30.3, §27.3.3, and §34 for a more detailed discussion.
+\par The excess of energy is brought away by photons travelling far away from the source where they were created. For example, such photons might be produced by collisionally excited line emission followed by radiative cooling of radiative decay of excited states of ions (C$^{+}$, N$^{+}$, O$^{+}$, O$^{++}$) and atoms (N, O, and so on) excited by collisions with electrons.
+\par Why are we not considering Hydrogen? Because the first excited level of H is at $10.2 \unit{eV}$ above the fundamental level. Then, to excite it the temperature has to be very high $T \sim 1.2\power{10}{5}\unit{K}$.
+\par Why are we considering electrons as the primary source of excitation? They have small mass, hence a high velocity.
+\par Depending on the temperature, different transitions are excited
+\begin{itemize}
+    \item $T \lesssim 5000 \unit{K}$, the fine structure transitions are excited\footnote{e.g. an electronic level splits into submagnetic levels: the electron spin feels the magnetic field generated by the electron itself while orbiting around the nucleus.}, with energies falling in the NIR/FIR ($\sim 100\,\mu\text{m}$);
+    \item $T \gtrsim 5000 \unit{K}$, the electronic transitions are excited\footnote{These levels are produced due to Coulombian potential between the electronic cloud and the nucleus.}, with energies falling in the UV/V/NIR bands ($\sim 3700-6500\unit{Å}$).
+\end{itemize}
+For example, the radiative cooling brought about the Ly-$alpha$ emission is written as 
+\begin{equation*}
+    \frac{\Lambda^{e}_{\text{Ly}\alpha}}{n_{\text{H}}^{2}} \sim 6\power{10}{-22}\left(\frac{x_{e}}{10^{-3}}\right)\left(\frac{T}{10^{4}\unit{K}}\right)^{-0.5}\exp\left(-\frac{1.18\power{10}{5}\unit{K}}{T}\right)\unit{erg}\unit{cm}^{3}\unit{s}^{-1}
+\end{equation*}
+\begin{figure}[h!]
+    \centering 
+    \includegraphics[width=0.5\linewidth]{img/hydrogencoolrate.png}
+    \caption{Cooling rate for neutral HI gas at temperatures $10 \lesssim T \lesssim 2 \power{10}{4} \unit{K}$ for two fractional ionizations. For$ T < 10^{4} \unit{}$, the cooling is dominated by two fine structure lines: [CII] 158\,$\mu$m and [OI] 63\,$\mu$m. Credits: \cite{2011piim.book.....D}.}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.7\linewidth]{img/radiative cooling.png}
+    \caption{On the left, the solid line represents radiative cooling function with contributions from selected elements shown; on the right: Radiative cooling function for solar-abundance plasma in CIE, but for different abundances. Credits: \cite{2011piim.book.....D}.}
+\end{figure}
+
+\subsection{Cooling Mechanisms: Radiative Recombination}
+
+We already know what the radiative recombination equation looks like\footnote{See \cite{2011piim.book.....D}, §14.1, §14.2, and §27.3 for more.} 
+\begin{equation*}
+    X^{i+1} + e^{-} \to X^{i} + h\nu
+\end{equation*}
+Each time that an electron recombines with an ion, the gas loses the mean kinetic energy of the electron, hence
+\begin{equation}
+    \Lambda_{\text{rr}} = \alpha_{\text{rr}}n_{e}n(X^{i+1})\langle E \rangle 
+\end{equation}
+where $\alpha_{\text{rr}}$ is the recombination coefficient, and $\langle E \rangle$ is the mean electronic kinetic energy. Note that $\Lambda_{\text{rr}}$ is roughly independent of the temperature.
+
+\subsection{Cooling Mechanisms: Bremsstrahlung}
+
+Braking radiation resulting from the acceleration of electrons in the electrostatic field of the nucleus of an atom (free-free emission in atomic physics), and is mainly produced from electrons since the acceleration is inversely proportional to the mass.
+\par This emission of photons happens at radio frequencies up to $\nu_{\text{cut-off}} \sim kT/h$ (e.g. $10\unit{nm}$ at $10^{6}\unit{K}$).
+The volumetric cooling rate can be shown to be proportional to
+\begin{equation}
+    \Lambda_{\text{ff}} \propto n_{e}n_{i}\sqrt{T}
+\end{equation}
+\par Now that we've completed an overview of both heating and cooling mechanisms, it's clear that ultimately the gas will stabilise at a temperature where heating balances the total cooling
+\begin{equation}
+    \Gamma_{\text{pe}} = \Lambda = \Lambda_{\text{ce}}+\Lambda_{\text{rr}}+\Lambda_{\text{ff}}
+\end{equation}
+As the numeric density $n$ increases, the collisional de-excitation increases and the radiative cooling decreases; as a consequence, the equilibrium temperature increases.
+\par At equilibrium Then
+\begin{equation*}
+    \Gamma = \Lambda \to nG = n^{2}\mathcal{L}
+\end{equation*}
+Back in the day, the physicists Field, Goldsmith, and Habing \cite{1969ApJ...155L.149F},  even if unaware of the role of dust in heating the ISM, found $G $that is independent of $T$, while $\mathcal{L} = \mathcal{L}(T)$. Their combination is most definitely not a power law, but can lead to multiple phases of the ISM in pressure
+equilibrium with each other.
+\par At a given $T$, there exists an equilibrium density at which heating and cooling processes balance
+\begin{equation}
+    n_{\text{eq}}(T) = \frac{G}{\mathcal{L}(T)}
+\end{equation}
+The presence of distinct phases in the ISM results from the distinction between stable and unstable equilibrium. In fact, whenever $n_{\text{eq}}\mathcal{L} > G$, the system will experience a net cooling; on the other hand, when $n_{\text{eq}}\mathcal{L} < G$, the system will experience a net heating.
+\par What Field, Goldsmith, and Habing showed is that there exist three equilibrium points in the pressure of the gas along the equilibrium curve. Of those, only two are stable.
+\par Now, this is the two-phase model, where cold neutral clouds are embedded in a warmer medium. Today we know that we have a shell system
+of MCs embedded in CNM, WNM, WIM, and HIM.

@@ -6,7 +6,7 @@ For this part of this chapter, I'll be mainly following \cite{2011piim.book.....
 \par The interstellar medium, or ISM, is, arguably, also the most important component of galaxies, for it is the ISM that is responsible for forming the stars that are the dominant sources of energy. While it now appears that the mass of most galaxies is primarily in the form of dark matter particles that are collisionless, or nearly so, it is the baryons (accounting for perhaps $\sim 10\%$ of the total mass) that determine the visible appearance of galaxies, and that are responsible for nearly all of the energy emitted by galaxies, derived from nuclear fusion in stars and the release of gravitational energy in accretion disks around black holes.
 \par The ISM has mainly four constituents:
 \begin{enumerate}
-    \item Gas, which covers a whooping $99\%$ of the total mass of the ISM. Note that when we refer to gas, we're imagining it as a macroscopic fluid/body;
+    \item Gas, which covers a whooping $99\%$ of the total mass of the ISM\footnote{The total mass in stars in the Milky Way is estimated at $M_{\star} \approx 10^{10}M_{\odot}$, hence $M_{\text{ISM}}/M_{\star} \sim 0.12$, but the ratio of course varies from galaxy to galaxy.} $M_{\text{ISM}} \approx 7\power{10}{9}M_{\odot}$. Note that when we refer to gas, we're imagining it as a macroscopic fluid/body;
     \item Dust \marginpar{With the term refractory elements we're referring to solid particles that evaporate/sublimate at temperatures $T \gg 1000\unit{K}$. For the sake of simplicity, they're usually assumed to be spherical.}, which has a significantly lower density than gas $\rho_{d} \sim 1\% \rho_{g}$. Dust is made of a hefty amount of \emph{refractory elements}, mainly coming in the form of grains of different morphology and diameters in the range $D \sim 0.1 - 10 \,\mu\text{m}$. Dust is mostly present in cold environments, but incidentally also in regions where $T \sim 10^{5}-10^{6}$;
     \item Cosmic Rays are charged, highly energetic particles produced in extreme environments, like supernovae and the stellar winds of O/B-class stars. The vast majority of CR are protons ($\sim 90\%$), followed by $\alpha$ particles and electrons. Both have velocities much greater than those typical of the ISM: The most energetic ever detected had an energy of $\sim 10^{21}\unit{eV}$. As such, they can easily penetrate even the most dense regions of the ISM.
     \item Photons from many sources, including the cosmic microwave background (CMB) in the millimeter/radio band, stellar photospheres (i.e., starlight) in the optical band, radiation emitted by interstellar ions, atoms, and molecules in the infrared band; thermal emission from interstellar grains that have been heated by starlight still in the infrared. Then moving to the higher energy ($\gamma$ and X) we also observe photons from free-free emission (“Bremsstrahlung”) from interstellar plasma, synchrotron radiation from relativistic electrons, and gamma rays emitted in nuclear transitions and $\pi_{0}$ decays.
@@ -35,6 +35,8 @@ The baryons in the interstellar medium of the Milky Way are found with a wide ra
     \label{fgr:hydrogendistrib}
 \end{figure}
 
+\par By studying the composition of Sun's atmosphere plus that of meteorites, it is possible to deduce the elemental abundances of the Solar protonebula ($\sim 4.57 \unit{Gyr}$ ago): 91.1\% of the Solar protonebula was made of Hydrogen, the 8.8\% of Helium, and all heavier element contributed only by $\sim 0.1\%$.
+
 \section{Collisional Processes}
 
 Collisions are fundamental to the physics of the interstellar medium (ISM): They allow the gas to (usually) be treated as a fluid; they determine the thermal and electrical conductivity and diffusion coefficients; they produce most of the excitations of ions, atoms, and molecules that result in emission of photons from the ISM; and they are responsible for recombination of electrons and ions, and for chemical reactions.
@@ -61,6 +63,41 @@ where $\sigma_{AB}$ is the velocity velocity-dependent reaction cross section fo
     \label{eq:maxwelliandistrib}
 \end{equation}
 where $\mu$ is the reduced mass of the collision partners. Note that if the velocity distribution of the individual collision partners is a Maxwellian distribution, the (relative) velocity distribution is still a Maxwellian and has the form (\ref{eq:maxwelliandistrib}).
+\par The mean kinetic energy per gas particle is 
+\begin{equation*}
+    \langle E_{\text{kin}} \rangle = \frac{1}{2}\mu \langle v^{2} \rangle
+\end{equation*}
+where 
+\begin{equation*}
+    \langle v^{2} \rangle = \int v^{2}f(v)\diff{v}
+\end{equation*}
+Incidentally, the square-mean velocity turns out to be $\propto \mu^{-1}$, meaning that the mean kinetic energy is independent of the mass of the colliding particles 
+\begin{equation}
+    \langle E_{\text{kin}} \rangle = \frac{3}{2}kT \sim 1.3\left(\frac{T}{10^{4}\unit{K}}\right)\unit{eV}
+\end{equation}
+\par Of course, the RMS-velocity $v_{\text{rms}} = \sqrt{\langle v^{2} \rangle}$ has a non-vanishing dependence on the mass 
+\begin{equation}
+    v_{\text{rms}} = 13.8\left(\frac{\langle E_{\text{kin}} \rangle}{\unit{eV}}\right)^{1/2}\left(\frac{\mu}{m_{p}}\right)^{-1/2}\unit{km}\unit{s}^{-1}
+\end{equation}
+meaning that the lighter particles are faster than more massive particles when the system is thermalized.
+\par Let's consider a gas of identical particles with the same mean kinetic energy, but an initial non-Maxwellian distribution of velocities. What is the time required to reach the kinetic equilibrium (by collisions)?
+\begin{equation*}
+    t_{\text{coll}} \sim \frac{\lambda}{v_{\text{rms}}} \sim \frac{1}{n\sigma}\sqrt{\frac{\mu}{2\langle E\rangle }}
+\end{equation*}
+where $\lambda$ is the mean free path between collisions. For a gas of Hydrogen atoms 
+\begin{equation*}
+    t_{\text{coll}}(\text{HH}) \sim 2\power{10}{8}\left(\frac{n_{\text{H}}}{\unit{cm}^{-3}}\right)^{-1}\left(\frac{\langle E_{\text{kin}}\rangle}{\unit{eV}}\right)^{-1/2}\unit{s}
+\end{equation*}
+while if we also consider free electrons, the expression changes a little 
+\begin{equation*}
+     t_{\text{coll}}(e\text{H}) \sim 6\power{10}{8}\left(\frac{n_{\text{e}}}{0.03\unit{cm}^{-3}}\right)^{-1}\left(\frac{\langle E_{\text{kin}}\rangle}{\unit{eV}}\right)^{-1/2}\unit{s}
+\end{equation*}
+Thus free electrons thermalise everywhere but in the highest density regions ($n_{\text{H}} > 0.3\unit{cm}^{-3}$), where the H-H thermalisation is faster.
+\par Similarly, we can also consider $e-e$ collisions, which are much faster on average 
+\begin{equation*}
+     t_{\text{coll}}(ee) \sim 3\power{10}{5}\left(\frac{n_{\text{e}}}{0.03\unit{cm}^{-3}}\right)^{-1}\left(\frac{\langle E_{\text{kin}}\rangle}{\unit{eV}}\right)^{3/2}\unit{s}
+\end{equation*}
+But regardless of the colliding channel, all $t_{\text{coll}}$ are suﬃciently short so that the ISM is in kinetic equilibrium and we can interchange $\langle E_{\text{kin}} \rangle$ and the temperature $T$.
 \par Let us give a brief overview of the collisional rate coefficient for different types of interaction.
 
 \subsubsection{Interaction between neutral species}
